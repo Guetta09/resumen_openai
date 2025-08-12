@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumidor de Archivos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, select {
+            display: block;
+            margin-top: 10px;
+        }
+        .resultado {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 Subir archivo para generar resumen</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Selecciona un archivo (.pdf o .txt):</label>
+        <input type="file" name="archivo" accept=".pdf,.txt" required>
+
+        <label>Formato de descarga:</label>
+        <select name="formato">
+            <option value="txt">.txt</option>
+            <option value="pdf">.pdf</option>
+        </select>
+
+        <input type="submit" value="Generar resumen">
+    </form>
+
+    {% if resumen %}
+    <div class="resultado">
+        <h2>📝 Resumen generado:</h2>
+        <p>{{ resumen }}</p>
+        {% if archivo %}
+        <p><a href="{{ url_for('descargar', archivo=archivo) }}">📥 Descargar resumen como {{ archivo.split('.')[-1] }}</a></p>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
