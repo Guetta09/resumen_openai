@@ -21,31 +21,22 @@ OpenAI API
 📥 Instalación y uso
 Clonar el repositorio
 
-bash
-Copiar
-Editar
 git clone https://github.com/tu-usuario/resumen_openai.git
 cd resumen_openai
 Instalar dependencias
 
-bash
-Copiar
-Editar
+
 npm install
 Configurar variables de entorno
 Crea un archivo .env en la raíz con:
 
-env
-Copiar
-Editar
+
 OPENAI_API_KEY=tu_api_key_aqui
 PORT=3000
-Iniciar el servidor
 
-bash
-Copiar
-Editar
+Iniciar el servidor
 npm start
+
 El servidor se ejecutará en http://localhost:3000.
 
 📡 Endpoint disponible
@@ -54,21 +45,15 @@ Recibe un texto y devuelve su resumen.
 
 Ejemplo de request:
 
-json
-Copiar
-Editar
 {
   "texto": "Aquí va el texto largo que quieres resumir..."
 }
-Ejemplo de respuesta:
 
-json
-Copiar
-Editar
+Ejemplo de respuesta:
 {
   "resumen": "Este es el resumen generado por la IA."
 }
 📌 Notas
-Es necesario contar con una API Key de OpenAI.
+Es necesario contar con una API Key de OpenAI o openrouter.
 
 Se recomienda no enviar textos extremadamente extensos debido a las limitaciones de tokens de la API
